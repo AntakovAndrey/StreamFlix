@@ -1,0 +1,12 @@
+.nav_link{
+    padding: 0 10px 0 10px;
+}
+
+.nav_link:hover{
+    
+}
+
+.nav_link_active{
+    font-weight: 600;
+    color: #F7F7F8;
+}
