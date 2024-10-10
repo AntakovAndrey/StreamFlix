@@ -1,9 +1,0 @@
-.vs/
-bin/
-obj/
-Properties/
-API.csproj
-API.csproj.*
-API.http
-API.sln
-appsettings.*
