@@ -11,14 +11,14 @@ function Upload(){
         const formData = new FormData();
         formData.append("file",file)
 
-        const response = await fetch('url',{
+        const response = await fetch('https://localhost:7081/api/Torrent',{
             method:"POST",
             body:formData
         })
-
+        console.log(response.json())
         if(response.ok)
         {
-            navigate(`/player?videoUrl=${response.json().then(res=>res.videoURL)}`);
+            //navigate(`/player?videoUrl=${response.json().then(res=>res.videoURL)}`);
         }
     }
 
@@ -28,7 +28,7 @@ function Upload(){
 
     return(
     <>
-        <form onSubmit={showFile}>
+        <form onSubmit={handleSubmit}>
             <input type="file" onChange={handleFileSelected}/>
             <button type="submit">Отправить</button>
         </form>
