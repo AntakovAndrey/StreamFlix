@@ -16,7 +16,7 @@ namespace Api.Controllers
                  file.CopyTo(stream);
             }
             string resultFilePath = await StartTorrentDownload(torrentFilePath);
-            return Ok($"/stream?file={Uri.EscapeDataString(resultFilePath)}");
+            return new JsonResult($"https://localhost:7081/api/Torrent/stream?fileName={Uri.EscapeDataString(resultFilePath)}");
         }
 
         [HttpGet("stream")]
