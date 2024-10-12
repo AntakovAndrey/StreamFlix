@@ -3,7 +3,7 @@ import {useLocation} from 'react-router-dom'
 
 function Player(){
     const location = useLocation();
-    const params = URLSearchParams(location.search)
+    const params = new URLSearchParams(location.search)
     const videoUrl = params.get("videoUrl")
     
     return(
