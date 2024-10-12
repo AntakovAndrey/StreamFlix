@@ -15,10 +15,11 @@ function Upload(){
             method:"POST",
             body:formData
         })
-        console.log(response.json())
+        
         if(response.ok)
-        {
-            //navigate(`/player?videoUrl=${response.json().then(res=>res.videoURL)}`);
+        {  
+            const videoUrl = await response.json();
+            navigate(`/player?videoUrl=${encodeURIComponent(videoUrl)}`);
         }
     }
 
