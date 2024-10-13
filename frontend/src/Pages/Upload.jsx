@@ -11,9 +11,11 @@ function Upload(){
         const formData = new FormData();
         formData.append("file",file)
 
-        const response = await fetch('https://localhost:7081/api/Torrent',{
+        const response = await fetch('http://localhost:5000/api/Torrent',{
             method:"POST",
+            mode:'cors',
             body:formData
+            
         })
         
         if(response.ok)

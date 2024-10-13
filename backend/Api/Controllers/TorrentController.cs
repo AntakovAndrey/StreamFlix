@@ -7,16 +7,24 @@ namespace Api.Controllers
     [ApiController]
     public class TorrentController : ControllerBase
     {
+        [HttpOptions]
+        public IActionResult Options()
+        {
+            return Ok();
+        }
+        
         [HttpPost]
         public async Task<IActionResult> UploadTorrentFile(IFormFile file) 
         {
+            Console.WriteLine($"File received. Filename: {file.FileName}");
             string torrentFilePath = Path.Combine("uploads", file.FileName);
             using (var stream = new FileStream(torrentFilePath, FileMode.OpenOrCreate))
             {
                  file.CopyTo(stream);
             }
             string resultFilePath = await StartTorrentDownload(torrentFilePath);
-            return new JsonResult($"https://localhost:7081/api/Torrent/stream?fileName={Uri.EscapeDataString(resultFilePath)}");
+            Console.WriteLine($"http://localhost:5000/api/Torrent/stream?fileName={Uri.EscapeDataString(resultFilePath)}");
+            return new JsonResult($"http://localhost:5000/api/Torrent/stream?fileName={Uri.EscapeDataString(resultFilePath)}");
         }
 
         [HttpGet("stream")]
