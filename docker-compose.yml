@@ -6,3 +6,27 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5000:8080"
+    networks:
+      - app-network
+    volumes:
+      - torrent_uploads:/app/uploads
+      - torrent_downloads:/app/downloads
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+volumes:
+  torrent_uploads:
+  torrent_downloads:
+
+networks:
+  app-network:
+    driver: bridge
