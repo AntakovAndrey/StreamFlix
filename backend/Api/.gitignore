@@ -1,0 +1,5 @@
+/obj
+/bin
+/Properties
+Api.csproj.user
+appsettings.*
