@@ -1,12 +1,12 @@
-#Films(StreamFlix) version 0.1.0
+# Films(StreamFlix) version 0.1.0
 
 Films is an open source project, which allows watching films.
 
-##About version 0.1.0
+## About version 0.1.0
 
 This version allows you to upload your torrent file. After you upload it it will be started to stream on your client. The output file of torrent must be `*.mp4` format (other file extensions are not supported in this version).
 
-##Building
+## Building
 
 To build this project you must have `Docker compose` installed.
 
