@@ -4,7 +4,7 @@ Films is an open source project, which allows watching films.
 
 ## About version 0.1.0
 
-This version allows you to upload your torrent file. After you upload it it will be started to stream on your client. The output file of torrent must be `*.mp4` format (other file extensions are not supported in this version).
+This version allows you to upload your torrent file. After you upload it, it will be started to stream on your client. The output file of torrent must be `*.mp4` format (other file extensions are not supported in this version).
 
 ## Building
 
