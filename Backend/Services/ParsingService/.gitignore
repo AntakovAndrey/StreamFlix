@@ -1,0 +1,11 @@
+﻿/Application/ParsingService.Application.Interfaces/bin
+/Application/ParsingService.Application.Interfaces/obj
+
+/Domain/ParsingService.Domain.Core/bin
+/Domain/ParsingService.Domain.Core/obj
+
+/Domain/ParsingService.Domain.Interfaces/bin
+/Domain/ParsingService.Domain.Interfaces/obj
+
+/Infrastructure/ParsingService.Infrastructure.Data/bin
+/Infrastructure/ParsingService.Infrastructure.Data/obj
