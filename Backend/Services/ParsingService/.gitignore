@@ -9,3 +9,7 @@
 
 /Infrastructure/ParsingService.Infrastructure.Data/bin
 /Infrastructure/ParsingService.Infrastructure.Data/obj
+
+ParsingService.API/bin
+ParsingService.API/obj
+ParsingService.API/appsettings.Development.json
