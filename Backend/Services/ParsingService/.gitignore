@@ -9,6 +9,8 @@
 
 /Infrastructure/ParsingService.Infrastructure.Data/bin
 /Infrastructure/ParsingService.Infrastructure.Data/obj
+/Infrastructure/ParsingService.Infrastructure.Parsers/bin
+/Infrastructure/ParsingService.Infrastructure.Parsers/obj
 
 ParsingService.API/bin
 ParsingService.API/obj
