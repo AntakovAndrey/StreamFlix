@@ -5,5 +5,5 @@ namespace ParsingService.Application.Interfaces;
 public interface IParser
 {
     public string BaseUrl { get; }
-    public IEnumerable<ParseResult> Parse();
+    public Task<IEnumerable<ParseResult>> ParseAsync();
 }
