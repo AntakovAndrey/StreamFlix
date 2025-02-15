@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  
+  
+
+
+  parsing_service:
+    build:
+      context: ./Backend/Services/ParsingService
+      dockerfile: Dockerfile
+    environment:
+      conn_string: conn_string
+    ports:
+      - "5000:8080"
+    restart: on-failure
+    
+
+
+volumes:
+  parsing_service_db_data:
