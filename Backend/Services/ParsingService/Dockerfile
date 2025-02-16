@@ -13,7 +13,7 @@ RUN dotnet restore "ParsingService.API/ParsingService.API.csproj"
 
 COPY "Domain/ParsingService.Domain.Core/" "Domain/ParsingService.Domain.Core/"
 COPY "Domain/ParsingService.Domain.Interfaces/" "Domain/ParsingService.Domain.Interfaces/"
-COPY "Application/ParsingService.Application.Interfaces/*.csproj" "Application/ParsingService.Application.Interfaces/"
+COPY "Application/ParsingService.Application.Interfaces/" "Application/ParsingService.Application.Interfaces/"
 COPY "Infrastructure/ParsingService.Infrastructure.Data/" "Infrastructure/ParsingService.Infrastructure.Data/"
 COPY "Infrastructure/ParsingService.Infrastructure.Parsers/" "Infrastructure/ParsingService.Infrastructure.Parsers/"
 COPY "ParsingService.API/" "ParsingService.API/"
