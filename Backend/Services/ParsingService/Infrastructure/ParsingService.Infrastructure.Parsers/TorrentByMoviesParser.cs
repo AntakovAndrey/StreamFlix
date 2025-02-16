@@ -4,14 +4,47 @@ using System.Text;
 using HtmlAgilityPack;
 using ParsingService.Application.Interfaces;
 using ParsingService.Domain.Core;
+using ParsingService.Domain.Core.Enums;
+using ParsingService.Domain.Interfaces;
 
 namespace ParsingService.Infrastructure.Parsers;
 
 public class TorrentByMoviesParser:IParser
 {
+    public Guid Guid { get; set; }
+    public string Name { get; } = "TorrentByMoviesParser";
     public string BaseUrl { get; } = "https://torrent.by";
+    public ParserStatus Status { get; set; }
+    public DateTime LastStarted { get; set; }
+    private Movie ParseMoviePage(string url)
+    {
+        var web = new HtmlWeb
+        {
+            AutomaticDecompression = DecompressionMethods.GZip,
+            UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+        };
+        var currentMoviePage = web.Load(url);
+        var title = currentMoviePage.DocumentNode.SelectSingleNode("//h1").InnerText;
+        var linkBox = currentMoviePage.DocumentNode.SelectSingleNode("//table[@id='downloadbox']");
+        var link = linkBox.SelectSingleNode(".//tr//td//a[@rel='nofollow']").Attributes["href"]?.Value;
+        var links = new MovieTorrentLink[]
+        {
+            new MovieTorrentLink()
+            {
+                Link = $"{BaseUrl}{link}",
+            }
+        };
+        Movie movie = new Movie
+        {
+            ParsedAt = DateTime.Now,
+            Title = title,
+            MovieTorrentLinks = links,
+        };
+        //Console.WriteLine($"Parsed: {title} - {link} at {movie.ParsedAt}");
+        return movie;
+    }
     
-    public async Task <IEnumerable<ParseResult>> ParseAsync()
+    public void ParseAsync()
     { 
         var web = new HtmlWeb
         {
@@ -35,28 +68,22 @@ public class TorrentByMoviesParser:IParser
                     string movieLink =tableRow.SelectNodes(".//td/a")
                         .Where(node=>node.Attributes["class"]?.Value!="dwnld"&&node.Attributes["class"]?.Value != "magnet")
                         .First().Attributes["href"]?.Value;
-                    document=web.Load($"{BaseUrl}{movieLink}");
-                    var title = document.DocumentNode
-                        .SelectSingleNode("//h1").InnerText;
-                    var linkBox = document.DocumentNode.SelectSingleNode("//table[@id='downloadbox']");
-                    var link = linkBox.SelectSingleNode(".//tr//td//a[@rel='nofollow']").Attributes["href"]?.Value;
-                    var links = new MovieTorrentLink[]
-                    {
-                        new MovieTorrentLink()
-                        {
-                            Link = $"{BaseUrl}{link}",
-                        }
-                    };
-                    Movie movie = new Movie
-                    {
-                        ParsedAt = DateTime.Now,
-                        Title = title,
-                        MovieTorrentLinks = links,
-                    };
+                    Movie movie = ParseMoviePage($"{BaseUrl}{movieLink}");
                     movies.Add(movie);
+                    
                 }
             }  
         }
-        return movies;
+        OnParse.Invoke(movies);
     }
+
+    public event IParser.ParseHandler OnParse;
+
+    public void Start()
+    {
+        this.CurrentThread=new Thread(ParseAsync);
+        CurrentThread.Start();
+    }
+
+    public Thread CurrentThread { get; set; }
 }

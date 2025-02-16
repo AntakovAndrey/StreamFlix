@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B6F1BFC8-535B-46A4-91AC-84F148465818}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ParsingService", "ParsingService", "{783C712C-D678-4028-A3B4-6A53EBE710C3}"
+	ProjectSection(SolutionItems) = preProject
+		Services\ParsingService\.gitignore = Services\ParsingService\.gitignore
+		Services\ParsingService\Dockerfile = Services\ParsingService\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{4E0F8941-BA99-4ED2-8341-0F8CC1807816}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsingService.Domain.Core", "Services\ParsingService\Domain\ParsingService.Domain.Core\ParsingService.Domain.Core.csproj", "{F0B4A7F9-EAD2-4282-8071-3B436D833A5E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{EAFB4209-C3E7-402A-8319-899417380F19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsingService.Application.Interfaces", "Services\ParsingService\Application\ParsingService.Application.Interfaces\ParsingService.Application.Interfaces.csproj", "{711CDB56-D208-4895-A104-16F2E25165D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{CC48DD69-51EA-4B3B-9AA9-F3637142FD1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsingService.API", "Services\ParsingService\ParsingService.API\ParsingService.API.csproj", "{DED7306B-E8D9-41C9-B500-6BEEB02ECAA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsingService.Domain.Interfaces", "Services\ParsingService\Domain\ParsingService.Domain.Interfaces\ParsingService.Domain.Interfaces.csproj", "{998E9B0F-1578-4BF7-8ECF-F8B1C8F22334}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsingService.Infrastructure.Data", "Services\ParsingService\Infrastructure\ParsingService.Infrastructure.Data\ParsingService.Infrastructure.Data.csproj", "{535BC30B-009D-40D5-B7E7-9DA547D6D4BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsingService.Infrastructure.Parsers", "Services\ParsingService\Infrastructure\ParsingService.Infrastructure.Parsers\ParsingService.Infrastructure.Parsers.csproj", "{BFDF4345-DF17-4AC2-B3A6-82EAB8491770}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{783C712C-D678-4028-A3B4-6A53EBE710C3} = {B6F1BFC8-535B-46A4-91AC-84F148465818}
+		{4E0F8941-BA99-4ED2-8341-0F8CC1807816} = {783C712C-D678-4028-A3B4-6A53EBE710C3}
+		{F0B4A7F9-EAD2-4282-8071-3B436D833A5E} = {4E0F8941-BA99-4ED2-8341-0F8CC1807816}
+		{EAFB4209-C3E7-402A-8319-899417380F19} = {783C712C-D678-4028-A3B4-6A53EBE710C3}
+		{711CDB56-D208-4895-A104-16F2E25165D3} = {EAFB4209-C3E7-402A-8319-899417380F19}
+		{CC48DD69-51EA-4B3B-9AA9-F3637142FD1E} = {783C712C-D678-4028-A3B4-6A53EBE710C3}
+		{DED7306B-E8D9-41C9-B500-6BEEB02ECAA9} = {783C712C-D678-4028-A3B4-6A53EBE710C3}
+		{998E9B0F-1578-4BF7-8ECF-F8B1C8F22334} = {4E0F8941-BA99-4ED2-8341-0F8CC1807816}
+		{535BC30B-009D-40D5-B7E7-9DA547D6D4BF} = {CC48DD69-51EA-4B3B-9AA9-F3637142FD1E}
+		{BFDF4345-DF17-4AC2-B3A6-82EAB8491770} = {CC48DD69-51EA-4B3B-9AA9-F3637142FD1E}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0B4A7F9-EAD2-4282-8071-3B436D833A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0B4A7F9-EAD2-4282-8071-3B436D833A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0B4A7F9-EAD2-4282-8071-3B436D833A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0B4A7F9-EAD2-4282-8071-3B436D833A5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{711CDB56-D208-4895-A104-16F2E25165D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{711CDB56-D208-4895-A104-16F2E25165D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{711CDB56-D208-4895-A104-16F2E25165D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{711CDB56-D208-4895-A104-16F2E25165D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DED7306B-E8D9-41C9-B500-6BEEB02ECAA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DED7306B-E8D9-41C9-B500-6BEEB02ECAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DED7306B-E8D9-41C9-B500-6BEEB02ECAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DED7306B-E8D9-41C9-B500-6BEEB02ECAA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{998E9B0F-1578-4BF7-8ECF-F8B1C8F22334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{998E9B0F-1578-4BF7-8ECF-F8B1C8F22334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{998E9B0F-1578-4BF7-8ECF-F8B1C8F22334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{998E9B0F-1578-4BF7-8ECF-F8B1C8F22334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{535BC30B-009D-40D5-B7E7-9DA547D6D4BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{535BC30B-009D-40D5-B7E7-9DA547D6D4BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{535BC30B-009D-40D5-B7E7-9DA547D6D4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{535BC30B-009D-40D5-B7E7-9DA547D6D4BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFDF4345-DF17-4AC2-B3A6-82EAB8491770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFDF4345-DF17-4AC2-B3A6-82EAB8491770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFDF4345-DF17-4AC2-B3A6-82EAB8491770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFDF4345-DF17-4AC2-B3A6-82EAB8491770}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
