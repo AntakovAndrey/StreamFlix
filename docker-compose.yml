@@ -2,7 +2,13 @@ version: '3.9'
 
 services:
   
-  
+  movie_service:
+    build:
+      context: ./Backend/Services/MovieService
+      dockerfile: Dockerfile
+    ports:
+      - "5001:8080"
+    restart: on-failure
 
 
   parsing_service:
@@ -14,8 +20,3 @@ services:
     ports:
       - "5000:8080"
     restart: on-failure
-    
-
-
-volumes:
-  parsing_service_db_data:
