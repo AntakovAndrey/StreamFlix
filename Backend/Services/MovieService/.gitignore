@@ -1,3 +1,9 @@
 ﻿MovieService.API/bin
 MovieService.API/obj
 MovieService.API/appsettings.Development.json
+
+Domain/MovieService.Domain.Core/obj
+Domain/MovieService.Domain.Core/bin
+
+Infrastructure/MovieService.Infrastructure.Data/obj
+Infrastructure/MovieService.Infrastructure.Data/bin
