@@ -6,7 +6,7 @@ public interface IGenreRepository
 {
     public IEnumerable <Genre> GetGenres();
     public Genre GetGenreById(int id);
-    public Genre AddProduct(Genre product);
-    public Genre UpdateProduct(Genre product);
-    public bool DeleteProduct(int id);
+    public Genre AddGenre(Genre genre);
+    public Genre UpdateGenre(Genre genre);
+    public bool DeleteGenre(int id);
 }

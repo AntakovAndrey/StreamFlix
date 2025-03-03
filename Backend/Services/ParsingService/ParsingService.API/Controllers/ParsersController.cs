@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ParsingService.Application.Interfaces;
+using ParsingService.Domain.Core;
+using ParsingService.Infrastructure.RabbitMQ;
 
 namespace ParsingService.API.Controllers;
 
@@ -8,9 +10,21 @@ namespace ParsingService.API.Controllers;
 public class ParsersController:Controller
 {
     private readonly IParsersContainer _parsersContainer;
-    public ParsersController(IParsersContainer parsersContainer)
+    private readonly IParseResultProducer _parseResultProducer;
+    public ParsersController(IParsersContainer parsersContainer, IParseResultProducer parseResultProducer)
     {
         _parsersContainer = parsersContainer;
+        _parseResultProducer = parseResultProducer;
+        _parsersContainer.OnParserWorked += OnParserWorked;
+    }
+    
+    
+    private void OnParserWorked(IParsersContainer sender, IEnumerable<ParseResult> results)
+    {
+        foreach (var resultItem in results)
+        {
+            _parseResultProducer.SendMessage(resultItem);
+        }
     }
     
     [HttpGet("GetParsers")]

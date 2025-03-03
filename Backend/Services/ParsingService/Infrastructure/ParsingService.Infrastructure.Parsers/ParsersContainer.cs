@@ -1,6 +1,7 @@
 ﻿using ParsingService.Application.Interfaces;
 using ParsingService.Domain.Core;
 using ParsingService.Domain.Core.Enums;
+using ParsingService.Infrastructure.RabbitMQ;
 
 namespace ParsingService.Infrastructure.Parsers;
 
@@ -9,7 +10,7 @@ public class ParsersContainer : IParsersContainer
     private readonly List<IParser> _parsers = [];
     
     public event IParsersContainer.ParserWorkedDelegate? OnParserWorked;
-
+   
     public void RegisterParser(IParser parser)
     {
         if (parser == null) throw new ArgumentNullException(nameof(parser));

@@ -9,4 +9,13 @@ public class Movie:ParseResult
     {
         return $"{Title} {(MovieTorrentLinks ?? Array.Empty<MovieTorrentLink>()).First().Link}";
     }
+
+    public MovieDto ToMovieDto()
+    {
+        return new MovieDto()
+        {
+            Title = this.Title,
+            TorrentLinks = this.MovieTorrentLinks.Select(x => x.Link).ToList()
+        };
+    }
 }

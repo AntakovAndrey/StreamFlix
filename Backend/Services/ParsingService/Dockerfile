@@ -2,20 +2,16 @@
 WORKDIR /source
 
 COPY "Domain/ParsingService.Domain.Core/*.csproj" "Domain/ParsingService.Domain.Core/"
-COPY "Domain/ParsingService.Domain.Interfaces/*.csproj" "Domain/ParsingService.Domain.Interfaces/"
-
 COPY "Application/ParsingService.Application.Interfaces/*.csproj" "Application/ParsingService.Application.Interfaces/"
-COPY "Infrastructure/ParsingService.Infrastructure.Data/*.csproj" "Infrastructure/ParsingService.Infrastructure.Data/"
 COPY "Infrastructure/ParsingService.Infrastructure.Parsers/*.csproj" "Infrastructure/ParsingService.Infrastructure.Parsers/"
-
+COPY "Infrastructure/ParsingService.Infrastructure.RabbitMQ/*.csproj" "Infrastructure/ParsingService.Infrastructure.RabbitMQ/"
 COPY "ParsingService.API/*.csproj" "ParsingService.API/"
 RUN dotnet restore "ParsingService.API/ParsingService.API.csproj"
 
 COPY "Domain/ParsingService.Domain.Core/" "Domain/ParsingService.Domain.Core/"
-COPY "Domain/ParsingService.Domain.Interfaces/" "Domain/ParsingService.Domain.Interfaces/"
 COPY "Application/ParsingService.Application.Interfaces/" "Application/ParsingService.Application.Interfaces/"
-COPY "Infrastructure/ParsingService.Infrastructure.Data/" "Infrastructure/ParsingService.Infrastructure.Data/"
 COPY "Infrastructure/ParsingService.Infrastructure.Parsers/" "Infrastructure/ParsingService.Infrastructure.Parsers/"
+COPY "Infrastructure/ParsingService.Infrastructure.RabbitMQ/" "Infrastructure/ParsingService.Infrastructure.RabbitMQ/"
 COPY "ParsingService.API/" "ParsingService.API/"
 WORKDIR "/source/ParsingService.API"
 RUN dotnet publish -o /app 

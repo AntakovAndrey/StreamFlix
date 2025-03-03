@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Domain\MovieService.Domain.Core\MovieService.Domain.Core.csproj" />
+      <ProjectReference Include="..\..\Domain\MovieService.Domain.Interfaces\MovieService.Domain.Interfaces.csproj" />
     </ItemGroup>
 
 </Project>
