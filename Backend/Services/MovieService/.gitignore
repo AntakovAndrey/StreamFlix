@@ -8,5 +8,9 @@ Domain/MovieService.Domain.Core/bin
 Domain/MovieService.Domain.Interfaces/obj
 Domain/MovieService.Domain.Interfaces/bin
 
+Application/MovieService.Application.Interfaces/
+
 Infrastructure/MovieService.Infrastructure.Data/obj
 Infrastructure/MovieService.Infrastructure.Data/bin
+Infrastructure/MovieService.Infrastructure.RabbitMQ/obj
+Infrastructure/MovieService.Infrastructure.RabbitMQ/bin
