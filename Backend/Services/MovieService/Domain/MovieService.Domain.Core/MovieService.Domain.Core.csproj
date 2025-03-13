@@ -6,8 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\ParsingService.Domain.Core\ParsingService.Domain.Core.csproj" />
-    </ItemGroup>
-
 </Project>

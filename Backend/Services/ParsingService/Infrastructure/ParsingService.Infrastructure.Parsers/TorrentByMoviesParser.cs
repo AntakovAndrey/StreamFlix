@@ -5,7 +5,6 @@ using HtmlAgilityPack;
 using ParsingService.Application.Interfaces;
 using ParsingService.Domain.Core;
 using ParsingService.Domain.Core.Enums;
-using ParsingService.Domain.Interfaces;
 
 namespace ParsingService.Infrastructure.Parsers;
 
@@ -40,7 +39,6 @@ public class TorrentByMoviesParser:IParser
             Title = title,
             MovieTorrentLinks = links,
         };
-        //Console.WriteLine($"Parsed: {title} - {link} at {movie.ParsedAt}");
         return movie;
     }
     
@@ -52,13 +50,12 @@ public class TorrentByMoviesParser:IParser
             UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         };
         List<Movie> movies = new List<Movie>();
-        for (int pageNumber = 0;pageNumber<5 ;pageNumber++)
+        for (int pageNumber = 0; ;pageNumber++)
         {
             HtmlDocument document = web.Load($"{BaseUrl}/films/?page={pageNumber}");
             var movieTables = document.DocumentNode.SelectNodes("//table[@id='torrents_table']");
             if(movieTables == null)
                 break;
-            List<HtmlNode> movieTableRows = new List<HtmlNode>();
             foreach (HtmlNode movieTable in movieTables)
             {
                 foreach (var tableRow in movieTable.SelectNodes("tr").
@@ -69,12 +66,11 @@ public class TorrentByMoviesParser:IParser
                         .Where(node=>node.Attributes["class"]?.Value!="dwnld"&&node.Attributes["class"]?.Value != "magnet")
                         .First().Attributes["href"]?.Value;
                     Movie movie = ParseMoviePage($"{BaseUrl}{movieLink}");
-                    movies.Add(movie);
-                    
+                    OnParse.Invoke([movie]);
                 }
             }  
         }
-        OnParse.Invoke(movies);
+        
     }
 
     public event IParser.ParseHandler OnParse;

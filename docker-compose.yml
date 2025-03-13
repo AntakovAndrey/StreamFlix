@@ -1,9 +1,39 @@
 version: '3.9'
 
 services:
-  
-  
+  rabbit_mq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=rmuser
+      - RABBITMQ_DEFAULT_PASS=rmpassword
+    volumes:
+      - rabbit_mq_data:/var/lib/rabbitmq
+    
+  movie_service:
+    build:
+      context: ./Backend/Services/MovieService
+      dockerfile: Dockerfile
+    ports:
+      - "5001:8080"
+    restart: on-failure
+    
+    depends_on: 
+      - movie_service_postgres
+      - rabbit_mq
 
+  movie_service_postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: movie_service_pg_user
+      POSTGRES_PASSWORD: movie_service_pg_password
+      POSTGRES_DB: movie_service_db
+    volumes:
+      - movie_service_postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 
   parsing_service:
     build:
@@ -13,9 +43,9 @@ services:
       conn_string: conn_string
     ports:
       - "5000:8080"
+    command: sh -c './wait-for host:5432 -- cmd' # ожидаем 
     restart: on-failure
-    
-
 
 volumes:
-  parsing_service_db_data:
+  rabbit_mq_data:
+  movie_service_postgres_data:
