@@ -1,0 +1,17 @@
+﻿/Application/ParsingService.Application.Interfaces/bin
+/Application/ParsingService.Application.Interfaces/obj
+
+/Domain/ParsingService.Domain.Core/bin
+/Domain/ParsingService.Domain.Core/obj
+
+
+/Infrastructure/ParsingService.Infrastructure.Data/bin
+/Infrastructure/ParsingService.Infrastructure.Data/obj
+/Infrastructure/ParsingService.Infrastructure.Parsers/bin
+/Infrastructure/ParsingService.Infrastructure.Parsers/obj
+/Infrastructure/ParsingService.Infrastructure.RabbitMQ/bin
+/Infrastructure/ParsingService.Infrastructure.RabbitMQ/obj
+
+ParsingService.API/bin
+ParsingService.API/obj
+ParsingService.API/appsettings.Development.json

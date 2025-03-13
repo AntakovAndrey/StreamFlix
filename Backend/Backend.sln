@@ -1,0 +1,123 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B6F1BFC8-535B-46A4-91AC-84F148465818}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ParsingService", "ParsingService", "{783C712C-D678-4028-A3B4-6A53EBE710C3}"
+	ProjectSection(SolutionItems) = preProject
+		Services\ParsingService\.gitignore = Services\ParsingService\.gitignore
+		Services\ParsingService\Dockerfile = Services\ParsingService\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{4E0F8941-BA99-4ED2-8341-0F8CC1807816}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsingService.Domain.Core", "Services\ParsingService\Domain\ParsingService.Domain.Core\ParsingService.Domain.Core.csproj", "{F0B4A7F9-EAD2-4282-8071-3B436D833A5E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{EAFB4209-C3E7-402A-8319-899417380F19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsingService.Application.Interfaces", "Services\ParsingService\Application\ParsingService.Application.Interfaces\ParsingService.Application.Interfaces.csproj", "{711CDB56-D208-4895-A104-16F2E25165D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{CC48DD69-51EA-4B3B-9AA9-F3637142FD1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsingService.API", "Services\ParsingService\ParsingService.API\ParsingService.API.csproj", "{DED7306B-E8D9-41C9-B500-6BEEB02ECAA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsingService.Infrastructure.Parsers", "Services\ParsingService\Infrastructure\ParsingService.Infrastructure.Parsers\ParsingService.Infrastructure.Parsers.csproj", "{BFDF4345-DF17-4AC2-B3A6-82EAB8491770}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MovieService", "MovieService", "{6810A7AF-98EE-404C-8198-0AEFD590F59A}"
+	ProjectSection(SolutionItems) = preProject
+		Services\MovieService\Dockerfile = Services\MovieService\Dockerfile
+		Services\MovieService\.gitignore = Services\MovieService\.gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieService.API", "Services\MovieService\MovieService.API\MovieService.API.csproj", "{8BF4658A-C70F-434A-939F-0340B9E31ECF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{87461FC9-8C57-4006-A6EF-AFEF2017BC6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieService.Domain.Core", "Services\MovieService\Domain\MovieService.Domain.Core\MovieService.Domain.Core.csproj", "{84D195C1-BD3D-4E1C-8713-8BBBAD5859C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{CDC4FF3F-6952-4380-9849-2694E1691C1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{7A46E101-9952-44CF-A34C-E094EA96B9D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieService.Infrastructure.Data", "Services\MovieService\Infrastructure\MovieService.Infrastructure.Data\MovieService.Infrastructure.Data.csproj", "{6072D116-1FFB-49E1-B47D-36E1A6D7F376}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieService.Domain.Interfaces", "Services\MovieService\Domain\MovieService.Domain.Interfaces\MovieService.Domain.Interfaces.csproj", "{CE3CC15F-9566-493E-AEB2-55253E520E20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieService.Application.Interfaces", "Services\MovieService\Application\MovieService.Application.Interfaces\MovieService.Application.Interfaces.csproj", "{3A58011C-7DB3-46EF-8E6D-27B62B898483}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieService.Infrastructure.RabbitMQ", "Services\MovieService\Infrastructure\MovieService.Infrastructure.RabbitMQ\MovieService.Infrastructure.RabbitMQ.csproj", "{A7B36B9A-7B07-4737-BA70-BE7D16E48F07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsingService.Infrastructure.RabbitMQ", "Services\ParsingService\Infrastructure\ParsingService.Infrastructure.RabbitMQ\ParsingService.Infrastructure.RabbitMQ.csproj", "{9F10D8A1-4ACB-4623-AA94-00696A31BBBF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{783C712C-D678-4028-A3B4-6A53EBE710C3} = {B6F1BFC8-535B-46A4-91AC-84F148465818}
+		{4E0F8941-BA99-4ED2-8341-0F8CC1807816} = {783C712C-D678-4028-A3B4-6A53EBE710C3}
+		{F0B4A7F9-EAD2-4282-8071-3B436D833A5E} = {4E0F8941-BA99-4ED2-8341-0F8CC1807816}
+		{EAFB4209-C3E7-402A-8319-899417380F19} = {783C712C-D678-4028-A3B4-6A53EBE710C3}
+		{711CDB56-D208-4895-A104-16F2E25165D3} = {EAFB4209-C3E7-402A-8319-899417380F19}
+		{CC48DD69-51EA-4B3B-9AA9-F3637142FD1E} = {783C712C-D678-4028-A3B4-6A53EBE710C3}
+		{DED7306B-E8D9-41C9-B500-6BEEB02ECAA9} = {783C712C-D678-4028-A3B4-6A53EBE710C3}
+		{BFDF4345-DF17-4AC2-B3A6-82EAB8491770} = {CC48DD69-51EA-4B3B-9AA9-F3637142FD1E}
+		{6810A7AF-98EE-404C-8198-0AEFD590F59A} = {B6F1BFC8-535B-46A4-91AC-84F148465818}
+		{8BF4658A-C70F-434A-939F-0340B9E31ECF} = {6810A7AF-98EE-404C-8198-0AEFD590F59A}
+		{87461FC9-8C57-4006-A6EF-AFEF2017BC6B} = {6810A7AF-98EE-404C-8198-0AEFD590F59A}
+		{84D195C1-BD3D-4E1C-8713-8BBBAD5859C2} = {87461FC9-8C57-4006-A6EF-AFEF2017BC6B}
+		{CDC4FF3F-6952-4380-9849-2694E1691C1A} = {6810A7AF-98EE-404C-8198-0AEFD590F59A}
+		{7A46E101-9952-44CF-A34C-E094EA96B9D2} = {6810A7AF-98EE-404C-8198-0AEFD590F59A}
+		{6072D116-1FFB-49E1-B47D-36E1A6D7F376} = {7A46E101-9952-44CF-A34C-E094EA96B9D2}
+		{CE3CC15F-9566-493E-AEB2-55253E520E20} = {87461FC9-8C57-4006-A6EF-AFEF2017BC6B}
+		{3A58011C-7DB3-46EF-8E6D-27B62B898483} = {CDC4FF3F-6952-4380-9849-2694E1691C1A}
+		{A7B36B9A-7B07-4737-BA70-BE7D16E48F07} = {7A46E101-9952-44CF-A34C-E094EA96B9D2}
+		{9F10D8A1-4ACB-4623-AA94-00696A31BBBF} = {CC48DD69-51EA-4B3B-9AA9-F3637142FD1E}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0B4A7F9-EAD2-4282-8071-3B436D833A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0B4A7F9-EAD2-4282-8071-3B436D833A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0B4A7F9-EAD2-4282-8071-3B436D833A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0B4A7F9-EAD2-4282-8071-3B436D833A5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{711CDB56-D208-4895-A104-16F2E25165D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{711CDB56-D208-4895-A104-16F2E25165D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{711CDB56-D208-4895-A104-16F2E25165D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{711CDB56-D208-4895-A104-16F2E25165D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DED7306B-E8D9-41C9-B500-6BEEB02ECAA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DED7306B-E8D9-41C9-B500-6BEEB02ECAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DED7306B-E8D9-41C9-B500-6BEEB02ECAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DED7306B-E8D9-41C9-B500-6BEEB02ECAA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFDF4345-DF17-4AC2-B3A6-82EAB8491770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFDF4345-DF17-4AC2-B3A6-82EAB8491770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFDF4345-DF17-4AC2-B3A6-82EAB8491770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFDF4345-DF17-4AC2-B3A6-82EAB8491770}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BF4658A-C70F-434A-939F-0340B9E31ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BF4658A-C70F-434A-939F-0340B9E31ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BF4658A-C70F-434A-939F-0340B9E31ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BF4658A-C70F-434A-939F-0340B9E31ECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84D195C1-BD3D-4E1C-8713-8BBBAD5859C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84D195C1-BD3D-4E1C-8713-8BBBAD5859C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84D195C1-BD3D-4E1C-8713-8BBBAD5859C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84D195C1-BD3D-4E1C-8713-8BBBAD5859C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6072D116-1FFB-49E1-B47D-36E1A6D7F376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6072D116-1FFB-49E1-B47D-36E1A6D7F376}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6072D116-1FFB-49E1-B47D-36E1A6D7F376}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6072D116-1FFB-49E1-B47D-36E1A6D7F376}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE3CC15F-9566-493E-AEB2-55253E520E20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE3CC15F-9566-493E-AEB2-55253E520E20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE3CC15F-9566-493E-AEB2-55253E520E20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE3CC15F-9566-493E-AEB2-55253E520E20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A58011C-7DB3-46EF-8E6D-27B62B898483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A58011C-7DB3-46EF-8E6D-27B62B898483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A58011C-7DB3-46EF-8E6D-27B62B898483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A58011C-7DB3-46EF-8E6D-27B62B898483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B36B9A-7B07-4737-BA70-BE7D16E48F07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B36B9A-7B07-4737-BA70-BE7D16E48F07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B36B9A-7B07-4737-BA70-BE7D16E48F07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B36B9A-7B07-4737-BA70-BE7D16E48F07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F10D8A1-4ACB-4623-AA94-00696A31BBBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F10D8A1-4ACB-4623-AA94-00696A31BBBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F10D8A1-4ACB-4623-AA94-00696A31BBBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F10D8A1-4ACB-4623-AA94-00696A31BBBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
