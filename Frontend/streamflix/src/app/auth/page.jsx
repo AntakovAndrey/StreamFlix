@@ -1,11 +1,13 @@
 import Link from "next/link";
+import Header from "../modules/Header"
 
 export default function Auth(){
     return (
         <>
+            <Header/>
             <form>
                 <h1>StreamFlix</h1>
-                <lable>Login to your account</lable>
+                <label>Log in to your account</label>
                 <div>
                     <label>Email</label>
                     <input></input>
