@@ -1,6 +1,7 @@
 ﻿using System.IO.Compression;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using HtmlAgilityPack;
 using ParsingService.Application.Interfaces;
 using ParsingService.Domain.Core;
@@ -15,7 +16,7 @@ public class TorrentByMoviesParser:IParser
     public string BaseUrl { get; } = "https://torrent.by";
     public ParserStatus Status { get; set; }
     public DateTime LastStarted { get; set; }
-    private Movie ParseMoviePage(string url)
+    private MovieDto ParseMoviePage(string url)
     {
         var web = new HtmlWeb
         {
@@ -23,7 +24,42 @@ public class TorrentByMoviesParser:IParser
             UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         };
         var currentMoviePage = web.Load(url);
+        
+        
+        
         var title = currentMoviePage.DocumentNode.SelectSingleNode("//h1").InnerText;
+        var descriptionContainer = currentMoviePage.DocumentNode.SelectNodes("//div[contains(@class,'descr')]//a");
+        string imdbId="", kinopoiskId="";
+        
+        //Parsing kinopoisk and imdb IDs
+        #region imdb and kinopoisk id
+        
+        foreach (var titleNode in descriptionContainer)
+        {
+            if (titleNode.Attributes["href"].Value.Contains("imdb.com/title/"))
+            {
+                Regex imdbRegex = new Regex("title/tt\\d+");
+                var r  = imdbRegex.Matches(titleNode.Attributes["href"].Value);
+                foreach (Match a in r)
+                {
+                    imdbId= a.Value.Split('/').Last();
+                    break;  
+                }
+            }
+            if (titleNode.Attributes["href"].Value.Contains("kinopoisk.ru/"))
+            {
+                Regex kinopoiskRegex = new Regex("film/\\d+");
+                var r  = kinopoiskRegex.Matches(titleNode.Attributes["href"].Value);
+                foreach (Match a in r)
+                {
+                    kinopoiskId= a.Value.Split('/').Last();
+                    break;  
+                }
+            }
+        }
+        
+        #endregion
+        
         var linkBox = currentMoviePage.DocumentNode.SelectSingleNode("//table[@id='downloadbox']");
         var link = linkBox.SelectSingleNode(".//tr//td//a[@rel='nofollow']").Attributes["href"]?.Value;
         var links = new MovieTorrentLink[]
@@ -33,13 +69,14 @@ public class TorrentByMoviesParser:IParser
                 Link = $"{BaseUrl}{link}",
             }
         };
-        Movie movie = new Movie
+        MovieDto movieDto = new MovieDto()
         {
             ParsedAt = DateTime.Now,
             Title = title,
-            MovieTorrentLinks = links,
+            ImdbId = imdbId,
+            KinopoiskId = kinopoiskId,
         };
-        return movie;
+        return movieDto;
     }
     
     public void ParseAsync()
@@ -49,7 +86,6 @@ public class TorrentByMoviesParser:IParser
             AutomaticDecompression = DecompressionMethods.GZip,
             UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         };
-        List<Movie> movies = new List<Movie>();
         for (int pageNumber = 0; ;pageNumber++)
         {
             HtmlDocument document = web.Load($"{BaseUrl}/films/?page={pageNumber}");
@@ -65,7 +101,7 @@ public class TorrentByMoviesParser:IParser
                     string movieLink =tableRow.SelectNodes(".//td/a")
                         .Where(node=>node.Attributes["class"]?.Value!="dwnld"&&node.Attributes["class"]?.Value != "magnet")
                         .First().Attributes["href"]?.Value;
-                    Movie movie = ParseMoviePage($"{BaseUrl}{movieLink}");
+                    MovieDto movie = ParseMoviePage($"{BaseUrl}{movieLink}");
                     OnParse.Invoke([movie]);
                 }
             }  
