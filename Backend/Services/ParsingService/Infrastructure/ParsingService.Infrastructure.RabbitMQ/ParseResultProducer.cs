@@ -35,10 +35,10 @@ public class ParseResultProducer:IParseResultProducer
             await _channel.QueueDeclareAsync(RabbitMqQueues.SeriesQueue, exclusive: false);
             json = JsonConvert.SerializeObject(parseResult as Series);
         }
-        if (parseResult is Movie movie)
+        if (parseResult is MovieDto movie)
         {
             await _channel.QueueDeclareAsync(RabbitMqQueues.MovieQueue, exclusive: false,autoDelete: false);
-            json = JsonConvert.SerializeObject(movie.ToMovieDto());
+            json = JsonConvert.SerializeObject(movie);
         }
         var body = Encoding.UTF8.GetBytes(json);
         await _channel.BasicPublishAsync("", routingKey: RabbitMqQueues.MovieQueue, body: body);

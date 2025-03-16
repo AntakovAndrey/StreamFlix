@@ -4,6 +4,7 @@ public class Movie:ParseResult
 {
     public int Id { get; set; }
     public string? Title { get; set; }
+    public string? Description { get; set; }
     public IEnumerable<MovieTorrentLink>? MovieTorrentLinks { get; set; }
     public override string ToString()
     {
@@ -15,6 +16,7 @@ public class Movie:ParseResult
         return new MovieDto()
         {
             Title = this.Title,
+            Description = this.Description,
             TorrentLinks = this.MovieTorrentLinks.Select(x => x.Link).ToList()
         };
     }
