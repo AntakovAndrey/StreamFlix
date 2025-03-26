@@ -48,6 +48,31 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieService.Infrastructure
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsingService.Infrastructure.RabbitMQ", "Services\ParsingService\Infrastructure\ParsingService.Infrastructure.RabbitMQ\ParsingService.Infrastructure.RabbitMQ.csproj", "{9F10D8A1-4ACB-4623-AA94-00696A31BBBF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MetricService", "MetricService", "{92D0CBE8-26DF-435A-87D8-C31B8ECFBC52}"
+	ProjectSection(SolutionItems) = preProject
+		Services\MetricService\.gitignore = Services\MetricService\.gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{76E50675-9043-4B37-9350-A78C3776E3AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetricService.Domain.Core", "Services\MetricService\Domain\MetricService.Domain.Core\MetricService.Domain.Core.csproj", "{4CAC7725-9A0C-4E9C-A6DC-E5680B709A85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetricService.API", "Services\MetricService\MetricService.API\MetricService.API.csproj", "{431DADB8-7D4B-4A25-9540-D46C106F896C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{738B8336-9106-462E-B35E-C65B97DD137E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserService", "UserService", "{BDDC3FB6-266C-4987-B0CF-30BBE654155A}"
+	ProjectSection(SolutionItems) = preProject
+		Services\UserService\Dockerfile = Services\UserService\Dockerfile
+		Services\UserService\.gitignore = Services\UserService\.gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.API", "Services\UserService\UserService.API\UserService.API.csproj", "{987D208D-8550-4225-A980-120B64937260}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{456A5351-0485-4C8C-866D-5C7FF8A503F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Domain.Core", "Services\UserService\Domain\UserService.Domain.Core\UserService.Domain.Core.csproj", "{B6B15EC1-9AC7-4771-9D42-ECDFEBD7AED8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +98,14 @@ Global
 		{3A58011C-7DB3-46EF-8E6D-27B62B898483} = {CDC4FF3F-6952-4380-9849-2694E1691C1A}
 		{A7B36B9A-7B07-4737-BA70-BE7D16E48F07} = {7A46E101-9952-44CF-A34C-E094EA96B9D2}
 		{9F10D8A1-4ACB-4623-AA94-00696A31BBBF} = {CC48DD69-51EA-4B3B-9AA9-F3637142FD1E}
+		{92D0CBE8-26DF-435A-87D8-C31B8ECFBC52} = {B6F1BFC8-535B-46A4-91AC-84F148465818}
+		{76E50675-9043-4B37-9350-A78C3776E3AE} = {92D0CBE8-26DF-435A-87D8-C31B8ECFBC52}
+		{4CAC7725-9A0C-4E9C-A6DC-E5680B709A85} = {76E50675-9043-4B37-9350-A78C3776E3AE}
+		{431DADB8-7D4B-4A25-9540-D46C106F896C} = {92D0CBE8-26DF-435A-87D8-C31B8ECFBC52}
+		{BDDC3FB6-266C-4987-B0CF-30BBE654155A} = {B6F1BFC8-535B-46A4-91AC-84F148465818}
+		{987D208D-8550-4225-A980-120B64937260} = {BDDC3FB6-266C-4987-B0CF-30BBE654155A}
+		{456A5351-0485-4C8C-866D-5C7FF8A503F0} = {BDDC3FB6-266C-4987-B0CF-30BBE654155A}
+		{B6B15EC1-9AC7-4771-9D42-ECDFEBD7AED8} = {456A5351-0485-4C8C-866D-5C7FF8A503F0}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F0B4A7F9-EAD2-4282-8071-3B436D833A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -119,5 +152,21 @@ Global
 		{9F10D8A1-4ACB-4623-AA94-00696A31BBBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F10D8A1-4ACB-4623-AA94-00696A31BBBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F10D8A1-4ACB-4623-AA94-00696A31BBBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CAC7725-9A0C-4E9C-A6DC-E5680B709A85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CAC7725-9A0C-4E9C-A6DC-E5680B709A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CAC7725-9A0C-4E9C-A6DC-E5680B709A85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CAC7725-9A0C-4E9C-A6DC-E5680B709A85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{431DADB8-7D4B-4A25-9540-D46C106F896C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{431DADB8-7D4B-4A25-9540-D46C106F896C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{431DADB8-7D4B-4A25-9540-D46C106F896C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{431DADB8-7D4B-4A25-9540-D46C106F896C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{987D208D-8550-4225-A980-120B64937260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{987D208D-8550-4225-A980-120B64937260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{987D208D-8550-4225-A980-120B64937260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{987D208D-8550-4225-A980-120B64937260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6B15EC1-9AC7-4771-9D42-ECDFEBD7AED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6B15EC1-9AC7-4771-9D42-ECDFEBD7AED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6B15EC1-9AC7-4771-9D42-ECDFEBD7AED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6B15EC1-9AC7-4771-9D42-ECDFEBD7AED8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

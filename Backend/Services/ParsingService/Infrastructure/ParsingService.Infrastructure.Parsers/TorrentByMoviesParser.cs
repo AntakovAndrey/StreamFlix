@@ -25,34 +25,32 @@ public class TorrentByMoviesParser:IParser
         };
         var currentMoviePage = web.Load(url);
         
-        
-        
         var title = currentMoviePage.DocumentNode.SelectSingleNode("//h1").InnerText;
-        var descriptionContainer = currentMoviePage.DocumentNode.SelectNodes("//div[contains(@class,'descr')]//a");
-        string imdbId="", kinopoiskId="";
         
         //Parsing kinopoisk and imdb IDs
         #region imdb and kinopoisk id
         
-        foreach (var titleNode in descriptionContainer)
+        var movieRatingLinks = currentMoviePage.DocumentNode.SelectNodes("//div[contains(@class,'descr')]//a");
+        string imdbId="", kinopoiskId="";
+        foreach (var titleNode in movieRatingLinks)
         {
             if (titleNode.Attributes["href"].Value.Contains("imdb.com/title/"))
             {
                 Regex imdbRegex = new Regex("title/tt\\d+");
-                var r  = imdbRegex.Matches(titleNode.Attributes["href"].Value);
-                foreach (Match a in r)
+                var matches  = imdbRegex.Matches(titleNode.Attributes["href"].Value);
+                foreach (Match match in matches)
                 {
-                    imdbId= a.Value.Split('/').Last();
+                    imdbId= match.Value.Split('/').Last();
                     break;  
                 }
             }
             if (titleNode.Attributes["href"].Value.Contains("kinopoisk.ru/"))
             {
                 Regex kinopoiskRegex = new Regex("film/\\d+");
-                var r  = kinopoiskRegex.Matches(titleNode.Attributes["href"].Value);
-                foreach (Match a in r)
+                var matches  = kinopoiskRegex.Matches(titleNode.Attributes["href"].Value);
+                foreach (Match match in matches)
                 {
-                    kinopoiskId= a.Value.Split('/').Last();
+                    kinopoiskId= match.Value.Split('/').Last();
                     break;  
                 }
             }
@@ -60,21 +58,26 @@ public class TorrentByMoviesParser:IParser
         
         #endregion
         
+        //Parsing torrent links
+        #region torrent links parsing
+        
         var linkBox = currentMoviePage.DocumentNode.SelectSingleNode("//table[@id='downloadbox']");
         var link = linkBox.SelectSingleNode(".//tr//td//a[@rel='nofollow']").Attributes["href"]?.Value;
-        var links = new MovieTorrentLink[]
-        {
-            new MovieTorrentLink()
-            {
-                Link = $"{BaseUrl}{link}",
-            }
-        };
+        string[] links =
+        [
+            $"{BaseUrl}{link}"
+        ];
+        
+        #endregion
+        
         MovieDto movieDto = new MovieDto()
         {
             ParsedAt = DateTime.Now,
             Title = title,
             ImdbId = imdbId,
             KinopoiskId = kinopoiskId,
+            TorrentLinks = links,
+            ParsedBy = this.Name
         };
         return movieDto;
     }
