@@ -14,7 +14,7 @@ StreamFlix - это современный стриминговый сервис
 
 ### Frontend
 - Next.js
-- TypeScript
+- JavaScript
 - Tailwind CSS
 - Современные UI компоненты
 
@@ -41,8 +41,8 @@ StreamFlix - это современный стриминговый сервис
 
 1. Клонируйте репозиторий:
 ```bash
-git clone https://github.com/AntakovAndrey/Films.git
-cd Films
+git clone https://github.com/StreamFlix-Team/StreamFlix.git
+cd StreamFlix
 ```
 
 2. Запустите приложение с помощью Docker Compose:
