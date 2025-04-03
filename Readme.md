@@ -1,19 +1,104 @@
-# Films(StreamFlix) version 0.1.0
+# StreamFlix
 
-Films is an open source project, which allows watching films.
+StreamFlix - это современный стриминговый сервис с микросервисной архитектурой, разработанный с использованием современных технологий и лучших практик разработки.
 
-## About version 0.1.0
+## 🚀 Основные возможности
 
-This version allows you to upload your torrent file. After you upload it, it will be started to stream on your client. The output file of torrent must be `*.mp4` format (other file extensions are not supported in this version).
+- Просмотр и управление фильмами
+- Система метрик и аналитики
+- Парсинг и обработка контента
+- Управление пользователями
+- Асинхронная обработка задач через RabbitMQ
 
-## Building
+## 🛠 Технологический стек
 
-To build this project you must have `Docker compose` installed.
+### Frontend
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Современные UI компоненты
 
+### Backend (микросервисы)
+- .NET Core
+- PostgreSQL
+- RabbitMQ
+- Docker
+
+### Сервисы
+- MovieService - управление фильмами
+- ParsingService - парсинг и обработка контента
+- MetricService - сбор и анализ метрик
+- UserService - управление пользователями
+
+## 📋 Требования
+
+- Docker и Docker Compose
+- Git
+- Node.js (для локальной разработки frontend)
+- .NET Core SDK (для локальной разработки backend)
+
+## 🚀 Установка и запуск
+
+1. Клонируйте репозиторий:
+```bash
+git clone https://github.com/AntakovAndrey/Films.git
+cd Films
 ```
-git clone https://github.com/AntakovAndrey/Films.git -b version-0.1.0
 
+2. Запустите приложение с помощью Docker Compose:
+```bash
 docker compose up
 ```
 
-Your app will be available on [localhost:3000/](localhost:3000/)
+3. После запуска будут доступны:
+- Frontend: http://localhost:3000
+- MovieService: http://localhost:5001
+- ParsingService: http://localhost:5000
+- RabbitMQ Management: http://localhost:15672
+
+## 📁 Структура проекта
+
+```
+StreamFlix/
+├── Frontend/
+│   └── streamflix/          # Next.js приложение
+│       ├── src/             # Исходный код
+│       ├── public/          # Статические файлы
+│       └── components.json  # Конфигурация компонентов
+├── Backend/
+│   └── Services/            # Микросервисы
+│       ├── MovieService/    # Сервис управления фильмами
+│       ├── ParsingService/  # Сервис парсинга
+│       ├── MetricService/   # Сервис метрик
+│       └── UserService/     # Сервис пользователей
+└── docker-compose.yml       # Конфигурация Docker
+```
+
+## 🔧 Архитектура
+
+Проект построен на микросервисной архитектуре:
+- Каждый сервис работает независимо
+- Взаимодействие через RabbitMQ
+- Использование PostgreSQL для хранения данных
+- Контейнеризация через Docker
+
+## 🤝 Участие в разработке
+
+Мы приветствуем вклад в развитие проекта! Если вы хотите внести свой вклад:
+
+1. Форкните репозиторий
+2. Создайте ветку для ваших изменений
+3. Внесите изменения
+4. Создайте Pull Request
+
+## 📝 Лицензия
+
+Этот проект распространяется под открытой лицензией. Подробности смотрите в файле LICENSE.
+
+## 📞 Поддержка
+
+Если у вас возникли вопросы или проблемы, пожалуйста, создайте issue в репозитории проекта.
+
+---
+
+© 2024 StreamFlix Team
