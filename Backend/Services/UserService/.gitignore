@@ -4,6 +4,12 @@
 /Domain/UserService.Domain.Interfaces/bin
 /Domain/UserService.Domain.Interfaces/obj
 
+/Application/UserService.Application.Services/bin
+/Application/UserService.Application.Services/obj
+
+/Infrastructure/UserService.Infrastructure.Data/bin
+/Infrastructure/UserService.Infrastructure.Data/obj
+
 UserService.API/bin
 UserService.API/obj
 UserService.API/Properties
