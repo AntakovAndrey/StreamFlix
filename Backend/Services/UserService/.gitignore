@@ -1,6 +1,5 @@
 ﻿/Domain/UserService.Domain.Core/bin
 /Domain/UserService.Domain.Core/obj
-
 /Domain/UserService.Domain.Interfaces/bin
 /Domain/UserService.Domain.Interfaces/obj
 
@@ -9,6 +8,8 @@
 
 /Infrastructure/UserService.Infrastructure.Data/bin
 /Infrastructure/UserService.Infrastructure.Data/obj
+/Infrastructure/UserService.Infrastructure.Services/bin
+/Infrastructure/UserService.Infrastructure.Services/obj
 
 UserService.API/bin
 UserService.API/obj
